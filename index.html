@@ -647,8 +647,8 @@ const statsObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const delay = entry.target.closest('.hero') ? 900 : 0;
       setTimeout(() => {
-        animateCount(document.getElementById('stat-sessions'), 82, '', 1500, false);
-        animateCount(document.getElementById('stat-mins'), 2650, '', 2000, true);
+        animateCount(document.getElementById('stat-sessions'), 84, '', 1500, false);
+        animateCount(document.getElementById('stat-mins'), 2710, '', 2000, true);
         animateCount(document.getElementById('stat-reviews'), 22, '則', 1200, false);
       }, delay);
       statsObserver.disconnect();
