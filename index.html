@@ -302,6 +302,26 @@
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
+  /* Coming soon course card */
+  .coming-soon-card { padding: 2rem 2.5rem; }
+  .coming-soon-card .event-tag { color: var(--text-tertiary); }
+  .notify-form-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .notify-email-input {
+    flex: 1; min-width: 180px;
+    padding: 10px 14px;
+    background: #0F1117;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .notify-email-input:focus { border-color: var(--accent); }
+  .notify-email-input::placeholder { color: var(--text-tertiary); }
+  @media (max-width: 560px) { .coming-soon-card { padding: 1.5rem; } }
 </style>
 <script>
 // ===== 分享會設定（在這裡改）=====
@@ -423,6 +443,28 @@ const EVENT_LINK = 'https://buy.stripe.com/8x2cN56pM6U380Cbgd9bO0h';
     <a class="event-btn" id="event-link" href="#" target="_blank">立即報名 →</a>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top: 0.75rem;">
+  <div class="event-card coming-soon-card fade-up">
+    <p class="event-tag">
+      <svg style="width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      即將推出
+    </p>
+    <p class="event-title">用 AI 打造你的設計作品集</p>
+    <p class="event-desc">作品集是找設計工作最耗時的一關。很多人卡在不知道怎麼說清楚自己的設計過程。這門課教你用 AI 加速每個步驟，從整理思路、撰寫案例到優化呈現，讓你不再對著空白頁面發呆。</p>
+    <div class="service-tags" style="margin-bottom: 1.25rem;">
+      <span class="tag">作品集架構</span><span class="tag">AI 輔助撰寫</span><span class="tag">案例敘事</span>
+    </div>
+    <p style="font-size:13px;color:var(--text-secondary);margin-bottom:0.75rem;">留下信箱，開課時第一個通知你</p>
+    <form id="notify-form">
+      <div class="notify-form-row">
+        <input type="email" id="notify-email" class="notify-email-input" placeholder="your@email.com" required>
+        <button type="submit" class="event-btn" style="border:none;cursor:pointer;flex-shrink:0;">通知我 →</button>
+      </div>
+      <p id="notify-msg" style="font-size:12px;margin:0.5rem 0 0;display:none;"></p>
+    </form>
   </div>
 </div>
 
@@ -733,6 +775,42 @@ if (card) {
   card.addEventListener('mouseleave', () => {
     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
     glare.style.opacity = '0';
+  });
+}
+</script>
+
+<script>
+// Email notification for coming-soon course
+const notifyForm = document.getElementById('notify-form');
+if (notifyForm) {
+  notifyForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const emailInput = document.getElementById('notify-email');
+    const msg = document.getElementById('notify-msg');
+    const btn = notifyForm.querySelector('button[type="submit"]');
+    const email = emailInput.value.trim();
+    btn.textContent = '傳送中…';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formspree.io/designlcc@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email, _subject: '作品集課程通知訂閱' })
+      });
+      if (res.ok) {
+        msg.style.color = 'var(--accent)';
+        msg.textContent = '✓ 已收到！開課時會第一個通知你。';
+        emailInput.value = '';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      msg.style.color = '#e88888';
+      msg.textContent = '發送失敗，請直接寄信至 designlcc@gmail.com';
+    }
+    msg.style.display = 'block';
+    btn.textContent = '通知我 →';
+    btn.disabled = false;
   });
 }
 </script>
