@@ -332,6 +332,20 @@
     }
   }
 
+  /* Like button */
+  .like-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-secondary); border-radius: 20px;
+    padding: 7px 16px; font-size: 12px; cursor: pointer;
+    transition: all 0.2s; font-family: inherit; line-height: 1;
+  }
+  .like-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .like-btn.liked { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+  .like-btn .like-heart { font-style: normal; }
+  .like-btn .like-count { font-size: 11px; opacity: 0.8; }
+  .card-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
   /* Coming soon course card */
   .coming-soon-card { padding: 2rem 2.5rem; }
   .coming-soon-card .event-tag { color: var(--text-tertiary); }
@@ -487,7 +501,12 @@ const EVENT_LINK = 'https://buy.stripe.com/8x2cN56pM6U380Cbgd9bO0h';
       <span class="tag">作品集架構</span><span class="tag">AI 輔助撰寫</span><span class="tag">案例敘事</span>
     </div>
     <p style="font-size:13px;color:var(--text-secondary);margin-bottom:0.75rem;">追蹤 Substack，開課時會直接收到通知</p>
-    <a class="event-btn" href="https://afterquitting.substack.com/" target="_blank">訂閱 裸辭之後 →</a>
+    <div class="card-actions">
+      <a class="event-btn" href="https://afterquitting.substack.com/" target="_blank">訂閱 裸辭之後 →</a>
+      <button class="like-btn" id="like-portfolio">
+        <span class="like-heart">♡</span> 我有興趣 <span class="like-count"></span>
+      </button>
+    </div>
   </div>
   <div class="event-card coming-soon-card fade-up" style="margin-top: 1rem;">
     <p class="event-tag">
@@ -500,7 +519,12 @@ const EVENT_LINK = 'https://buy.stripe.com/8x2cN56pM6U380Cbgd9bO0h';
       <span class="tag">Contractor / Freelancer</span><span class="tag">IR35</span><span class="tag">Day rate</span><span class="tag">Limited Company</span><span class="tag">接案平台</span>
     </div>
     <p style="font-size:13px;color:var(--text-secondary);margin-bottom:0.75rem;">追蹤 Substack，開課時會直接收到通知</p>
-    <a class="event-btn" href="https://afterquitting.substack.com/" target="_blank">訂閱 裸辭之後 →</a>
+    <div class="card-actions">
+      <a class="event-btn" href="https://afterquitting.substack.com/" target="_blank">訂閱 裸辭之後 →</a>
+      <button class="like-btn" id="like-freelance">
+        <span class="like-heart">♡</span> 我有興趣 <span class="like-count"></span>
+      </button>
+    </div>
   </div>
 </div>
 
@@ -814,6 +838,45 @@ if (card) {
     glare.style.opacity = '0';
   });
 }
+</script>
+
+<script>
+// Like buttons for coming-soon cards
+async function initLikeBtn(btnId, key) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  const heart = btn.querySelector('.like-heart');
+  const countEl = btn.querySelector('.like-count');
+  const storageKey = 'liked-' + key;
+
+  if (localStorage.getItem(storageKey) === '1') {
+    btn.classList.add('liked');
+    heart.textContent = '♥';
+  }
+
+  try {
+    const res = await fetch(`https://api.countapi.xyz/get/uxcircles/${key}`);
+    const data = await res.json();
+    if (data.value !== undefined) countEl.textContent = data.value;
+  } catch {}
+
+  btn.addEventListener('click', async () => {
+    if (btn.classList.contains('liked')) return;
+    btn.classList.add('liked');
+    heart.textContent = '♥';
+    localStorage.setItem(storageKey, '1');
+    try {
+      const res = await fetch(`https://api.countapi.xyz/hit/uxcircles/${key}`);
+      const data = await res.json();
+      if (data.value !== undefined) countEl.textContent = data.value;
+    } catch {
+      countEl.textContent = (parseInt(countEl.textContent) || 0) + 1;
+    }
+  });
+}
+
+initLikeBtn('like-portfolio', 'portfolio-course');
+initLikeBtn('like-freelance', 'freelance-course');
 </script>
 
 <script>
