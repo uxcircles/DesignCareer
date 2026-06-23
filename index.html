@@ -206,9 +206,11 @@
     mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   }
   .marquee-row { display: flex; gap: 12px; margin-bottom: 12px; }
-  .marquee-row-inner { display: flex; gap: 12px; animation: marquee-left 50s linear infinite; }
+  .marquee-row-inner { display: flex; gap: 12px; animation: marquee-left 50s linear infinite; will-change: transform; }
   .marquee-row.reverse .marquee-row-inner { animation: marquee-right 50s linear infinite; }
-  .marquee-row:hover .marquee-row-inner { animation-play-state: paused; }
+  @media (hover: hover) {
+    .marquee-row:hover .marquee-row-inner { animation-play-state: paused; }
+  }
 
   @keyframes marquee-left {
     0% { transform: translateX(0); }
