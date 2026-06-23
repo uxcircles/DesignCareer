@@ -841,7 +841,22 @@ if (card) {
 </script>
 
 <script>
-// Like buttons for coming-soon cards
+// Like buttons — Supabase backend
+const SB_URL = 'https://aeyrdjyowwopkluckjlb.supabase.co';
+const SB_KEY = 'sb_publishable_HqkAugxYN_lGKl5NPtNDyw_G5iBXkYz';
+
+async function sbFetch(path, options = {}) {
+  return fetch(`${SB_URL}${path}`, {
+    ...options,
+    headers: {
+      'apikey': SB_KEY,
+      'Authorization': `Bearer ${SB_KEY}`,
+      'Content-Type': 'application/json',
+      ...(options.headers || {})
+    }
+  });
+}
+
 async function initLikeBtn(btnId, key) {
   const btn = document.getElementById(btnId);
   if (!btn) return;
@@ -855,9 +870,9 @@ async function initLikeBtn(btnId, key) {
   }
 
   try {
-    const res = await fetch(`https://api.countapi.xyz/get/uxcircles/${key}`);
+    const res = await sbFetch(`/rest/v1/course_likes?key=eq.${key}&select=count`);
     const data = await res.json();
-    if (data.value !== undefined) countEl.textContent = data.value;
+    if (data[0]?.count !== undefined) countEl.textContent = data[0].count;
   } catch {}
 
   btn.addEventListener('click', async () => {
@@ -866,9 +881,12 @@ async function initLikeBtn(btnId, key) {
     heart.textContent = '♥';
     localStorage.setItem(storageKey, '1');
     try {
-      const res = await fetch(`https://api.countapi.xyz/hit/uxcircles/${key}`);
-      const data = await res.json();
-      if (data.value !== undefined) countEl.textContent = data.value;
+      const res = await sbFetch('/rest/v1/rpc/increment_like', {
+        method: 'POST',
+        body: JSON.stringify({ course_key: key })
+      });
+      const count = await res.json();
+      if (count !== undefined) countEl.textContent = count;
     } catch {
       countEl.textContent = (parseInt(countEl.textContent) || 0) + 1;
     }
