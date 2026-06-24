@@ -207,7 +207,7 @@
   }
   .marquee-row { display: flex; gap: 12px; margin-bottom: 12px; }
   .marquee-row-inner { display: flex; gap: 12px; animation: marquee-left 50s linear infinite; will-change: transform; }
-  .marquee-row.reverse .marquee-row-inner { animation: marquee-right 50s linear infinite; }
+  .marquee-row.reverse .marquee-row-inner { animation: marquee-right 50s linear infinite -25s; }
   @media (hover: hover) {
     .marquee-row:hover .marquee-row-inner { animation-play-state: paused; }
   }
@@ -217,8 +217,8 @@
     to { transform: translateX(-50%); }
   }
   @keyframes marquee-right {
-    from { transform: translateX(0); }
-    to { transform: translateX(50%); }
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
   }
 
   .t-card {
