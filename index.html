@@ -893,7 +893,11 @@ async function initLikeBtn(btnId, key) {
       });
       const getRes = await sbFetch(`/rest/v1/course_likes?key=eq.${key}&select=count`);
       const getData = await getRes.json();
-      if (getData[0]?.count !== undefined) countEl.textContent = getData[0].count;
+      if (Array.isArray(getData) && getData[0]?.count !== undefined) {
+        countEl.textContent = getData[0].count;
+      } else {
+        countEl.textContent = (parseInt(countEl.textContent) || 0) + 1;
+      }
     } catch {
       countEl.textContent = (parseInt(countEl.textContent) || 0) + 1;
     }
