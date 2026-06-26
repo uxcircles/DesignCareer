@@ -342,13 +342,30 @@
     background: transparent; border: 1px solid var(--border);
     color: var(--text-secondary); border-radius: 20px;
     padding: 7px 16px; font-size: 12px; cursor: pointer;
-    transition: all 0.2s; font-family: inherit; line-height: 1;
+    font-family: inherit; line-height: 1; position: relative;
+    overflow: visible; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
   }
   .like-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .like-btn.liked { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
-  .like-btn .like-heart { font-style: normal; }
+  .like-btn .like-heart { font-style: normal; display: inline-block; transition: transform 0.15s; }
+  .like-btn:active .like-heart { transform: scale(1.4); }
   .like-btn .like-count { font-size: 11px; opacity: 0.8; }
   .card-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  @keyframes like-pulse {
+    0%   { transform: scale(1); }
+    35%  { transform: scale(1.25); border-color: var(--accent); color: var(--accent); }
+    100% { transform: scale(1); }
+  }
+  .like-btn.like-animating { animation: like-pulse 0.35s ease; }
+  @keyframes float-heart {
+    0%   { opacity: 1; transform: translateY(0) scale(0.8); }
+    60%  { opacity: 0.8; }
+    100% { opacity: 0; transform: translateY(-44px) scale(1.4); }
+  }
+  .floating-heart {
+    position: absolute; bottom: 100%; pointer-events: none;
+    color: var(--accent); animation: float-heart 0.7s ease-out forwards;
+  }
 
   /* Coming soon course card */
   .coming-soon-card { padding: 2rem 2.5rem; }
@@ -863,17 +880,20 @@ async function sbFetch(path, options = {}) {
   });
 }
 
+function spawnFloatingHeart(btn) {
+  const el = document.createElement('span');
+  el.textContent = '♥';
+  el.className = 'floating-heart';
+  el.style.left = (12 + Math.random() * 24) + 'px';
+  el.style.fontSize = (12 + Math.random() * 6) + 'px';
+  btn.appendChild(el);
+  setTimeout(() => el.remove(), 700);
+}
+
 async function initLikeBtn(btnId, key) {
   const btn = document.getElementById(btnId);
   if (!btn) return;
-  const heart = btn.querySelector('.like-heart');
   const countEl = btn.querySelector('.like-count');
-  const storageKey = 'liked-' + key;
-
-  if (localStorage.getItem(storageKey) === '1') {
-    btn.classList.add('liked');
-    heart.textContent = '♥';
-  }
 
   try {
     const res = await sbFetch(`/rest/v1/course_likes?key=eq.${key}&select=count`);
@@ -882,10 +902,16 @@ async function initLikeBtn(btnId, key) {
   } catch {}
 
   btn.addEventListener('click', async () => {
-    if (btn.classList.contains('liked')) return;
-    btn.classList.add('liked');
-    heart.textContent = '♥';
-    localStorage.setItem(storageKey, '1');
+    // Animate button + floating heart
+    btn.classList.remove('like-animating');
+    void btn.offsetWidth;
+    btn.classList.add('like-animating');
+    spawnFloatingHeart(btn);
+
+    // Optimistic update
+    countEl.textContent = (parseInt(countEl.textContent) || 0) + 1;
+
+    // Sync with Supabase in background
     try {
       await sbFetch('/rest/v1/rpc/increment_like', {
         method: 'POST',
@@ -895,12 +921,8 @@ async function initLikeBtn(btnId, key) {
       const getData = await getRes.json();
       if (Array.isArray(getData) && getData[0]?.count !== undefined) {
         countEl.textContent = getData[0].count;
-      } else {
-        countEl.textContent = (parseInt(countEl.textContent) || 0) + 1;
       }
-    } catch {
-      countEl.textContent = (parseInt(countEl.textContent) || 0) + 1;
-    }
+    } catch {}
   });
 }
 
