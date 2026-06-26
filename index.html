@@ -887,12 +887,13 @@ async function initLikeBtn(btnId, key) {
     heart.textContent = '♥';
     localStorage.setItem(storageKey, '1');
     try {
-      const res = await sbFetch('/rest/v1/rpc/increment_like', {
+      await sbFetch('/rest/v1/rpc/increment_like', {
         method: 'POST',
         body: JSON.stringify({ course_key: key })
       });
-      const count = await res.json();
-      if (count !== undefined) countEl.textContent = count;
+      const getRes = await sbFetch(`/rest/v1/course_likes?key=eq.${key}&select=count`);
+      const getData = await getRes.json();
+      if (getData[0]?.count !== undefined) countEl.textContent = getData[0].count;
     } catch {
       countEl.textContent = (parseInt(countEl.textContent) || 0) + 1;
     }
