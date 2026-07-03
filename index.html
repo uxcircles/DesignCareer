@@ -744,6 +744,8 @@ const testimonials = [
   { text: "了解到資深設計師在業界的真實情況，尤其是現在 AI 趨勢引起的不只設計產業的變化，以及對職涯上組織的影響，有呼應到我自己的觀察。", name: "匿名參與者", role: "AI求職分享會學員" },
   { text: "了解職場的一些真實面和考量，對於換位思考很有幫助。", name: "匿名參與者", role: "AI求職分享會學員" },
   { text: "Chun-Chuan is really kind and professional. He gave me incredibly solid and helpful advice on my CV and portfolio. Instead of just giving surface-level feedback, he asked thoughtful follow-up questions to provide deeper, more detailed suggestions for improvement. Even though I have used several mentoring services before, Chun-Chuan's advice was much more concrete and directly addressed my specific situation and problems. I truly appreciate his support!", name: "TJYD", role: "UX Designer, Freelancer" },
+  { text: "謝謝願意撥時間分享～剛聊完收穫很多，特別是聽到你分享怎麼在設計流程裡使用 AI，能知道其他設計師具體怎麼做非常有幫助。另外小眾接案平台的分享也很實用，對我來說是新資訊！非常感謝你大方分享這些實戰觀點 😊", name: "V.C.", role: "Product Designer, Perflection AI" },
+  { text: "很好的幫助我釐清 case study 邏輯，用不同面向的角度切入 presentation 確保對讀者來說清楚易懂！", name: "Julie", role: "CX Manager, Nissan" },
 ];
 
 function makeCard(t) {
@@ -818,9 +820,9 @@ const statsObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const delay = entry.target.closest('.hero') ? 900 : 0;
       setTimeout(() => {
-        animateCount(document.getElementById('stat-sessions'), 85, '', 1500, false);
-        animateCount(document.getElementById('stat-mins'), 2760, '', 2000, true);
-        animateCount(document.getElementById('stat-reviews'), 29, '則', 1200, false);
+        animateCount(document.getElementById('stat-sessions'), 88, '', 1500, false);
+        animateCount(document.getElementById('stat-mins'), 2820, '', 2000, true);
+        animateCount(document.getElementById('stat-reviews'), 31, '則', 1200, false);
       }, delay);
       statsObserver.disconnect();
     }
