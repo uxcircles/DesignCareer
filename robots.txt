@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://uxcircles.github.io/DesignCareer/sitemap.xml
+Sitemap: https://chundesigncareer.com/sitemap.xml
