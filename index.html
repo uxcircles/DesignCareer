@@ -111,6 +111,11 @@
         "@type": "Question",
         "name": "如果覺得沒幫助，可以退款嗎？",
         "acceptedAnswer": { "@type": "Answer", "text": "履歷健診在我交付回饋之前可以全額退款。一對一諮詢如果在 session 結束前覺得沒有幫助，我們可以再約一次補充，確保你有收穫。" }
+      },
+      {
+        "@type": "Question",
+        "name": "如何評估這筆投資？",
+        "acceptedAnswer": { "@type": "Answer", "text": "英國 UX/UI 設計師的年薪，Junior 約 £30K–45K，Mid 約 £45K–65K，Senior 約 £65K–85K，Lead 約 £85K–100K。諮詢費用是幾十到幾百英鎊，相較於年薪只是很小的一筆。真正的成本不是諮詢費，是你自己摸索、投錯履歷、面試失利所花掉的時間。我能做的，是把我自己走過的試錯濃縮起來給你，讓你少走幾個月的冤枉路。" }
       }
     ]
   }
@@ -734,6 +739,10 @@ const EVENT_LINK = 'https://buy.stripe.com/8x2cN56pM6U380Cbgd9bO0h';
       <div class="faq-q">如果覺得沒幫助，可以退款嗎？<span class="faq-icon">+</span></div>
       <div class="faq-a">履歷健診在我交付回饋之前可以全額退款。一對一諮詢如果在 session 結束前覺得沒有幫助，我們可以再約一次補充，確保你有收穫。</div>
     </div>
+    <div class="faq-item fade-up fade-up-delay-5">
+      <div class="faq-q">如何評估這筆投資？<span class="faq-icon">+</span></div>
+      <div class="faq-a">英國 UX/UI 設計師的年薪，Junior 約 £30K–45K，Mid 約 £45K–65K，Senior 約 £65K–85K，Lead 約 £85K–100K。諮詢費用是幾十到幾百英鎊，相較於年薪只是很小的一筆。真正的成本不是諮詢費，是你自己摸索、投錯履歷、面試失利所花掉的時間。我能做的，是把我自己走過的試錯濃縮起來給你，讓你少走幾個月的冤枉路。</div>
+    </div>
   </div>
 </div>
 
@@ -867,7 +876,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       setTimeout(() => {
         animateCount(document.getElementById('stat-sessions'), 89, '', 1500, false);
         animateCount(document.getElementById('stat-mins'), 2880, '', 2000, true);
-        animateCount(document.getElementById('stat-reviews'), 31, '則', 1200, false);
+        animateCount(document.getElementById('stat-reviews'), 32, '則', 1200, false);
       }, delay);
       statsObserver.disconnect();
     }
