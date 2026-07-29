@@ -77,6 +77,14 @@
             "name": "4 週職涯陪跑",
             "description": "每週 60 分鐘視訊加非同步支援，4 週全面準備履歷、作品集與面試，£350。"
           }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "履歷與作品集健診",
+            "description": "非同步書面回饋，48 小時內交付，針對履歷與作品集給予具體修改建議，£70。"
+          }
         }
       ]
     }
@@ -282,6 +290,18 @@
   .service-btn.outline { background: transparent; color: var(--accent); border: 1px solid rgba(107,125,232,0.3); }
   .service-btn.outline:hover { background: rgba(155,149,228,0.1); }
   @media (max-width: 600px) { .services { grid-template-columns: 1fr; } }
+
+  .addon-service { margin-top: 1rem; padding: 1.25rem 1.5rem; border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .addon-service-label { font-size: 12px; color: var(--text-tertiary); margin-bottom: 0.3rem; }
+  .addon-service-name { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 600; }
+  .addon-service-type { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+  .addon-service-desc { font-size: 12px; color: var(--text-secondary); margin-top: 0.4rem; max-width: 460px; line-height: 1.6; }
+  .addon-service-right { display: flex; align-items: center; gap: 1.25rem; flex-shrink: 0; }
+  .addon-service-price { font-size: 18px; font-weight: 600; color: var(--accent); text-align: right; white-space: nowrap; }
+  .addon-service-price-ntd { font-size: 11px; color: var(--text-tertiary); text-align: right; white-space: nowrap; }
+  .addon-service-btn { display: inline-block; padding: 8px 16px; font-size: 12px; font-family: 'Noto Sans TC', sans-serif; background: transparent; color: var(--accent); border: 1px solid rgba(107,125,232,0.4); border-radius: 6px; text-decoration: none; font-weight: 600; white-space: nowrap; transition: background 0.15s; }
+  .addon-service-btn:hover { background: rgba(155,149,228,0.1); }
+  @media (max-width: 600px) { .addon-service { flex-direction: column; align-items: flex-start; } .addon-service-right { width: 100%; justify-content: space-between; } }
 
   /* Marquee */
   .marquee-section { padding: 3rem 0; }
@@ -674,6 +694,21 @@ const EVENT_LINK = 'https://buy.stripe.com/8x2cN56pM6U380Cbgd9bO0h';
       <div class="service-tags"><span class="tag">履歷重寫</span><span class="tag">作品集重包裝</span><span class="tag">面試實戰練習</span><span class="tag">全程支援</span></div>
       <p class="service-note">✦ 開始前提供 15 分鐘免費通話，確認適合再決定</p>
       <a class="service-btn outline" href="https://cal.com/ux-circles/15min" target="_blank">預約免費通話 →</a>
+    </div>
+  </div>
+  <div class="addon-service fade-up">
+    <div>
+      <p class="addon-service-label">不想通話，只要書面回饋？</p>
+      <p class="addon-service-name">履歷 ＋ 作品集健診</p>
+      <p class="addon-service-type">非同步 · 48小時內交付</p>
+      <p class="addon-service-desc">大多數履歷和作品在 6 秒內就被跳過了。我給你具體的書面回饋，哪裡讓人停下來、哪裡讓人跳過、怎麼改。</p>
+    </div>
+    <div class="addon-service-right">
+      <div>
+        <p class="addon-service-price">£70</p>
+        <p class="addon-service-price-ntd">≈ NT$2,800</p>
+      </div>
+      <a class="addon-service-btn" href="https://buy.stripe.com/bJe7sL7tQ5PZft46ZX9bO0m" target="_blank">立即預約 →</a>
     </div>
   </div>
 </div>
