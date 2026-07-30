@@ -31,41 +31,52 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #0F1117; --bg-secondary: #1A1D27; --text: #F0F0EE;
+    --bg: #11131E; --bg-secondary: #1A1D27; --text: #F0F0EE;
     --text-secondary: #B0B0B8; --text-tertiary: #909098;
     --border: #2A2D3A; --accent: #6b7de8; --accent-hover: #7b96f2; --accent-light: #13123A;
   }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; max-width: 900px; margin: 0 auto; padding: 0 2rem; }
 
   .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,17,23,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-  .navbar-inner { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+  .navbar-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
   .navbar-name { font-size: 13px; font-weight: 500; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
   .navbar-name img { height: 24px; width: 24px; border-radius: 6px; display: block; }
   .navbar-cta { font-size: 12px; padding: 6px 14px; background: var(--accent); color: #0F1117; border-radius: 6px; text-decoration: none; font-weight: 600; }
   .navbar-cta:hover { opacity: 0.85; }
 
-  .hero { padding: 8rem 0 2.5rem; border-bottom: 1px solid var(--border); }
+  .hero { padding: 8rem 0 3rem; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.5rem; align-items: center; }
+  @media (max-width: 700px) { .hero { grid-template-columns: 1fr; padding: 6.5rem 0 2.5rem; } }
+  .hero-img { width: 100%; height: auto; display: block; }
+  @media (max-width: 700px) { .hero-img { max-width: 220px; margin: 0 auto; order: -1; } }
   .hero-tag { font-size: 11px; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 1rem; }
   .hero-title { font-family: 'Noto Serif TC', serif; font-size: 34px; font-weight: 600; line-height: 1.4; margin-bottom: 1.25rem; }
-  .hero-sub { font-size: 15px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 2rem; max-width: 600px; }
+  .hero-sub { font-size: 15px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 2rem; max-width: 480px; }
   .hero-cta { display: inline-block; padding: 12px 24px; background: var(--accent); color: #0F1117; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
   .hero-cta:hover { opacity: 0.85; }
   .hero-note { font-size: 12px; color: var(--text-tertiary); margin-top: 0.75rem; }
 
   .section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+  .section-alt { background: #171922; width: 100vw; margin-left: calc(50% - 50vw); padding-left: calc(50vw - 50% + 2rem); padding-right: calc(50vw - 50% + 2rem); box-sizing: border-box; }
   .section-title { font-size: 11px; letter-spacing: 0.15em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .section-heading { font-family: 'Noto Serif TC', serif; font-size: 28px; font-weight: 600; text-align: center; margin-bottom: 2.5rem; color: var(--text); }
   .section-lead { font-size: 15px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem; max-width: 600px; }
+  .section-intro { text-align: center; margin-bottom: 3.5rem; }
+  .section-intro .section-title { text-align: center; }
+  .section-intro .section-heading { margin-bottom: 1rem; }
+  .section-intro .section-lead { max-width: 520px; margin-left: auto; margin-right: auto; margin-bottom: 0; }
 
-  .pain-list { display: flex; flex-direction: column; gap: 0.85rem; }
-  .pain-item { display: flex; gap: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-  .pain-item::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+  .pain-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  @media (max-width: 600px) { .pain-list { grid-template-columns: 1fr; } }
+  .pain-item { display: flex; gap: 14px; align-items: flex-start; background: var(--bg); padding: 1.5rem; font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0; }
+  .pain-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); flex-shrink: 0; margin-top: 8px; }
 
-  .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   @media (max-width: 600px) { .value-grid { grid-template-columns: 1fr; } }
-  .value-card { background: var(--bg-secondary); border-radius: 10px; padding: 1.1rem 1.2rem; }
-  .value-card-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
-  .value-card-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; }
+  .value-card { border: 1px solid var(--border); padding: 1.5rem; }
+  .value-card-num { font-family: 'Noto Serif TC', serif; font-size: 13px; color: var(--accent); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+  .value-card-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+  .value-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
 
   .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   @media (max-width: 600px) { .who-grid { grid-template-columns: 1fr; } }
@@ -84,9 +95,15 @@
   .faq-q { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
   .faq-a { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
 
-  .chapter { margin-bottom: 2rem; }
-  .chapter:last-child { margin-bottom: 0; }
-  .chapter-title { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 600; margin-bottom: 0.9rem; color: var(--text); }
+  .chapter-row { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: 3.5rem; }
+  .chapter-row:last-child { margin-bottom: 0; }
+  .chapter-row.reverse { flex-direction: row-reverse; }
+  @media (max-width: 700px) { .chapter-row, .chapter-row.reverse { flex-direction: column; gap: 1.25rem; margin-bottom: 3rem; } }
+  .chapter-img { width: 200px; height: 200px; object-fit: cover; flex-shrink: 0; }
+  @media (max-width: 700px) { .chapter-img { width: 140px; height: 140px; margin: 0 auto; } }
+  .chapter-content { flex: 1; min-width: 0; }
+  .chapter-title { font-family: 'Noto Serif TC', serif; font-size: 19px; font-weight: 600; margin-bottom: 0.4rem; color: var(--text); }
+  .chapter-tagline { font-size: 13px; color: var(--text-tertiary); font-style: italic; margin-bottom: 1rem; }
   .article-list { display: flex; flex-direction: column; gap: 0; }
   .article-item { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
   .article-item:last-child { border-bottom: none; }
@@ -122,15 +139,18 @@
 </nav>
 
 <section class="hero">
-  <p class="hero-tag">給設計師的求職指南</p>
-  <h1 class="hero-title">投了很多履歷，卻不知道問題出在哪？<br>這系列文章，把整個求職流程講清楚。</h1>
-  <p class="hero-sub">從職涯定位、履歷作品集、面試準備，到拿到 offer 後怎麼談薪水——30 篇文章，陸續在 Substack「裸辭之後」發布，寫給準備海外求職與轉職的設計師。</p>
-  <a class="hero-cta" href="https://afterquitting.substack.com/" target="_blank">訂閱，不錯過新文章 →</a>
-  <p class="hero-note">未來會集結成電子書，訂閱的人優先知道</p>
+  <div>
+    <p class="hero-tag">給設計師的求職指南</p>
+    <h1 class="hero-title">投了很多履歷，卻不知道問題出在哪？<br>這系列文章，把整個求職流程講清楚。</h1>
+    <p class="hero-sub">從職涯定位、履歷作品集、面試準備，到拿到 offer 後怎麼談薪水——30 篇文章，陸續在 Substack「裸辭之後」發布，寫給準備海外求職與轉職的設計師。</p>
+    <a class="hero-cta" href="https://afterquitting.substack.com/" target="_blank">訂閱，不錯過新文章 →</a>
+    <p class="hero-note">未來會集結成電子書，訂閱的人優先知道</p>
+  </div>
+  <img class="hero-img" src="guide-hero.webp" alt="求職路上的旅程意象">
 </section>
 
 <section class="section">
-  <p class="section-title">聽起來熟悉嗎</p>
+  <h2 class="section-heading">聽起來熟悉嗎</h2>
   <div class="pain-list">
     <p class="pain-item">投了很多履歷，大多石沉大海，不知道問題出在履歷、作品集，還是別的地方</p>
     <p class="pain-item">作品集改了好幾個月，還是不確定招募者會怎麼看</p>
@@ -141,22 +161,26 @@
   </div>
 </section>
 
-<section class="section">
-  <p class="section-title">讀完你會得到什麼</p>
+<section class="section section-alt">
+  <h2 class="section-heading">讀完你會得到什麼</h2>
   <div class="value-grid">
     <div class="value-card">
+      <p class="value-card-num">01</p>
       <p class="value-card-title">看懂自己真正在找什麼</p>
       <p class="value-card-desc">用核心能力而非頭銜評估職涯，新創 vs 大公司該怎麼選，不再靠感覺做決定。</p>
     </div>
     <div class="value-card">
+      <p class="value-card-num">02</p>
       <p class="value-card-title">做出招募者願意看完的履歷與作品集</p>
       <p class="value-card-desc">包含作品數量不夠、簽了 NDA 沒有畫面可放，這些常見卡點的具體解法。</p>
     </div>
     <div class="value-card">
+      <p class="value-card-num">03</p>
       <p class="value-card-title">面試不再靠運氣</p>
       <p class="value-card-desc">自我介紹、專案簡報、行為面試題、白板題、Take-home，每個環節都有具體做法。</p>
     </div>
     <div class="value-card">
+      <p class="value-card-num">04</p>
       <p class="value-card-title">拿到 Offer 後知道怎麼談</p>
       <p class="value-card-desc">談薪水的心理轉換、感謝信怎麼寫、新工作前 90 天怎麼站穩腳步。</p>
     </div>
@@ -164,72 +188,95 @@
 </section>
 
 <section class="section">
-  <p class="section-title">完整目錄</p>
-  <p class="section-lead">30 篇文章，分成四個章節加一個番外篇。已發布的可以直接閱讀，其餘會陸續更新。</p>
+  <div class="section-intro">
+    <p class="section-title">完整目錄</p>
+    <h2 class="section-heading">30 篇文章，四個章節加一個番外篇</h2>
+    <p class="section-lead">已發布的可以直接閱讀，其餘會陸續更新。</p>
+  </div>
 
-  <div class="chapter">
-    <p class="chapter-title">第一章｜先搞清楚你要找什麼</p>
-    <div class="article-list">
-      <div class="article-item"><p class="article-name">1. 找不到理想的設計工作？問題可能不在能力，而在你的「期待」</p><p class="article-status status-live">已發布</p></div>
-      <div class="article-item"><p class="article-name">2. 新創 vs 大公司，怎麼選？</p><p class="article-status status-scheduled">7/31</p></div>
-      <div class="article-item"><p class="article-name">3. 破除頭銜迷思：用「核心能力」而非「名片上的 Title」來評估你的職涯</p><p class="article-status status-scheduled">8/4</p></div>
-      <div class="article-item"><p class="article-name">4. 用「第二曲線」思考求職以外的下一步</p><p class="article-status status-soon">8/11</p></div>
-      <div class="article-item"><p class="article-name">5. In-house 還是 Agency？做產品還是做網頁？</p><p class="article-status status-scheduled">8/14</p></div>
-      <div class="article-item"><p class="article-name">6. 定位你自己：從「什麼都能做的設計師」到「複雜系統 Fintech 設計師」</p><p class="article-status status-scheduled">8/18</p></div>
+  <div class="chapter-row">
+    <img class="chapter-img" src="guide-ch1.webp" alt="第一章：先搞清楚你要找什麼">
+    <div class="chapter-content">
+      <p class="chapter-title">第一章｜先搞清楚你要找什麼</p>
+      <p class="chapter-tagline">像羅盤一樣，先看清方向，再決定怎麼走</p>
+      <div class="article-list">
+        <div class="article-item"><p class="article-name">1. 找不到理想的設計工作？問題可能不在能力，而在你的「期待」</p><p class="article-status status-live">已發布</p></div>
+        <div class="article-item"><p class="article-name">2. 新創 vs 大公司，怎麼選？</p><p class="article-status status-scheduled">7/31</p></div>
+        <div class="article-item"><p class="article-name">3. 破除頭銜迷思：用「核心能力」而非「名片上的 Title」來評估你的職涯</p><p class="article-status status-scheduled">8/4</p></div>
+        <div class="article-item"><p class="article-name">4. 用「第二曲線」思考求職以外的下一步</p><p class="article-status status-soon">8/11</p></div>
+        <div class="article-item"><p class="article-name">5. In-house 還是 Agency？做產品還是做網頁？</p><p class="article-status status-scheduled">8/14</p></div>
+        <div class="article-item"><p class="article-name">6. 定位你自己：從「什麼都能做的設計師」到「複雜系統 Fintech 設計師」</p><p class="article-status status-scheduled">8/18</p></div>
+      </div>
     </div>
   </div>
 
-  <div class="chapter">
-    <p class="chapter-title">第二章｜讓人看見你</p>
-    <div class="article-list">
-      <div class="article-item"><p class="article-name">7. 從定位到履歷：怎麼決定要留下什麼，拿掉什麼</p><p class="article-status status-scheduled">8/21</p></div>
-      <div class="article-item"><p class="article-name">8. 設計師履歷這樣寫，HR 才會繼續看下去</p><p class="article-status status-soon">8/25</p></div>
-      <div class="article-item"><p class="article-name">9. Cover Letter 不是履歷的摘要，是定位的證詞</p><p class="article-status status-scheduled">9/1</p></div>
-      <div class="article-item"><p class="article-name">10. 作品數量到底要多少才夠？資歷淺、轉職者的三種解法</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">11. 作品集：3 個案例講清楚，比 10 個 project 堆疊更有效</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">12. 作品集用網頁呈現：工具怎麼選，怎麼去掉 AI 味</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">13. 作品集首頁與 Hero Section：3 秒內留住招募者</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">14. NDA 底下的作品集：沒有畫面可以放，還能怎麼寫故事</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">15. LinkedIn：被動求職者的日常經營</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">16. 求職管道實務：除了 Referral、Coffee Chat，還有哪些曝光機會？</p><p class="article-status status-soon">敬請期待</p></div>
+  <div class="chapter-row reverse">
+    <img class="chapter-img" src="guide-ch2.webp" alt="第二章：讓人看見你">
+    <div class="chapter-content">
+      <p class="chapter-title">第二章｜讓人看見你</p>
+      <p class="chapter-tagline">打開一扇窗，讓招募者看見你真正的樣子</p>
+      <div class="article-list">
+        <div class="article-item"><p class="article-name">7. 從定位到履歷：怎麼決定要留下什麼，拿掉什麼</p><p class="article-status status-scheduled">8/21</p></div>
+        <div class="article-item"><p class="article-name">8. 設計師履歷這樣寫，HR 才會繼續看下去</p><p class="article-status status-soon">8/25</p></div>
+        <div class="article-item"><p class="article-name">9. Cover Letter 不是履歷的摘要，是定位的證詞</p><p class="article-status status-scheduled">9/1</p></div>
+        <div class="article-item"><p class="article-name">10. 作品數量到底要多少才夠？資歷淺、轉職者的三種解法</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">11. 作品集：3 個案例講清楚，比 10 個 project 堆疊更有效</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">12. 作品集用網頁呈現：工具怎麼選，怎麼去掉 AI 味</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">13. 作品集首頁與 Hero Section：3 秒內留住招募者</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">14. NDA 底下的作品集：沒有畫面可以放，還能怎麼寫故事</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">15. LinkedIn：被動求職者的日常經營</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">16. 求職管道實務：除了 Referral、Coffee Chat，還有哪些曝光機會？</p><p class="article-status status-soon">敬請期待</p></div>
+      </div>
     </div>
   </div>
 
-  <div class="chapter">
-    <p class="chapter-title">第三章｜走進面試現場</p>
-    <div class="article-list">
-      <div class="article-item"><p class="article-name">17. 面試準備：從研究公司到問對問題</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">18. 自我介紹：5 分鐘內定調一場面試</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">19. 專案簡報：怎麼講一個招募者記得住的故事</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">20. 行為面試題：除了 STAR，還有兩個實用敘事框架</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">21. 白板題：設計師最怕的現場設計怎麼破</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">22. 設計挑戰（Take-home）：值得做與不值得做的界線</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">23. 反問面試官：問對問題也是一種展現</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">24. 面試復盤：怎麼讓每一場都比上一場更穩</p><p class="article-status status-soon">敬請期待</p></div>
+  <div class="chapter-row">
+    <img class="chapter-img" src="guide-ch3.webp" alt="第三章：走進面試現場">
+    <div class="chapter-content">
+      <p class="chapter-title">第三章｜走進面試現場</p>
+      <p class="chapter-tagline">走進會議室之前，先想清楚要說的故事</p>
+      <div class="article-list">
+        <div class="article-item"><p class="article-name">17. 面試準備：從研究公司到問對問題</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">18. 自我介紹：5 分鐘內定調一場面試</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">19. 專案簡報：怎麼講一個招募者記得住的故事</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">20. 行為面試題：除了 STAR，還有兩個實用敘事框架</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">21. 白板題：設計師最怕的現場設計怎麼破</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">22. 設計挑戰（Take-home）：值得做與不值得做的界線</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">23. 反問面試官：問對問題也是一種展現</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">24. 面試復盤：怎麼讓每一場都比上一場更穩</p><p class="article-status status-soon">敬請期待</p></div>
+      </div>
     </div>
   </div>
 
-  <div class="chapter">
-    <p class="chapter-title">第四章｜拿到 Offer 之後</p>
-    <div class="article-list">
-      <div class="article-item"><p class="article-name">25. 談薪：從不敢開口到用英鎊數字談判</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">26. 感謝信：小動作，大差別</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">27. 第一天：新工作前 90 天怎麼活下來</p><p class="article-status status-soon">敬請期待</p></div>
+  <div class="chapter-row reverse">
+    <img class="chapter-img" src="guide-ch4.webp" alt="第四章：拿到 Offer 之後">
+    <div class="chapter-content">
+      <p class="chapter-title">第四章｜拿到 Offer 之後</p>
+      <p class="chapter-tagline">談判不是對抗，是為自己爭取應得的位置</p>
+      <div class="article-list">
+        <div class="article-item"><p class="article-name">25. 談薪：從不敢開口到用英鎊數字談判</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">26. 感謝信：小動作，大差別</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">27. 第一天：新工作前 90 天怎麼活下來</p><p class="article-status status-soon">敬請期待</p></div>
+      </div>
     </div>
   </div>
 
-  <div class="chapter">
-    <p class="chapter-title">番外篇｜AI 時代怎麼玩</p>
-    <div class="article-list">
-      <div class="article-item"><p class="article-name">28. 只會用 ChatGPT 算不上 AI 設計師？</p><p class="article-status status-soon">8/7</p></div>
-      <div class="article-item"><p class="article-name">29. AI 工具怎麼用在求職流程（履歷／作品集／模擬面試）</p><p class="article-status status-soon">敬請期待</p></div>
-      <div class="article-item"><p class="article-name">30. AI 會不會取代設計師？求職者該怎麼想這件事</p><p class="article-status status-soon">敬請期待</p></div>
+  <div class="chapter-row">
+    <img class="chapter-img" src="guide-ch-ai.webp" alt="番外篇：AI 時代怎麼玩">
+    <div class="chapter-content">
+      <p class="chapter-title">番外篇｜AI 時代怎麼玩</p>
+      <p class="chapter-tagline">工具會變，你的判斷力才是核心</p>
+      <div class="article-list">
+        <div class="article-item"><p class="article-name">28. 只會用 ChatGPT 算不上 AI 設計師？</p><p class="article-status status-soon">8/7</p></div>
+        <div class="article-item"><p class="article-name">29. AI 工具怎麼用在求職流程（履歷／作品集／模擬面試）</p><p class="article-status status-soon">敬請期待</p></div>
+        <div class="article-item"><p class="article-name">30. AI 會不會取代設計師？求職者該怎麼想這件事</p><p class="article-status status-soon">敬請期待</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <p class="section-title">適合誰讀</p>
+<section class="section section-alt">
+  <h2 class="section-heading">適合誰讀</h2>
   <div class="audience-cols">
     <div class="audience-col yes">
       <p class="audience-col-title">✓ 適合你，如果你是</p>
@@ -260,7 +307,7 @@
 </section>
 
 <section class="section">
-  <p class="section-title">常見問題</p>
+  <h2 class="section-heading">常見問題</h2>
   <div class="faq-item">
     <p class="faq-q">這些文章多久更新一次？</p>
     <p class="faq-a">目前規劃每週更新，實際頻率會依工作狀況調整。訂閱 Substack 會在新文章發布時直接收到通知，不用自己回來查。</p>
