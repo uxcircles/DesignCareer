@@ -41,7 +41,7 @@
   .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,17,23,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .navbar-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
   .navbar-name { font-size: 13px; font-weight: 500; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-  .navbar-name img { height: 24px; width: 24px; border-radius: 6px; display: block; }
+  .navbar-name img { height: 32px; width: 32px; border-radius: 6px; display: block; }
   .navbar-cta { font-size: 12px; padding: 6px 14px; background: var(--accent); color: #0F1117; border-radius: 6px; text-decoration: none; font-weight: 600; }
   .navbar-cta:hover { opacity: 0.85; }
 
@@ -113,7 +113,7 @@
   .article-status { font-size: 11px; white-space: nowrap; flex-shrink: 0; }
   .status-live { color: var(--accent); font-weight: 600; }
   .status-scheduled { color: var(--text-tertiary); }
-  .status-soon { color: var(--text-tertiary); opacity: 0.7; }
+  .status-soon { color: var(--text-tertiary); }
 
   .about { display: flex; gap: 1rem; align-items: flex-start; }
   .about-avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: center 35%; border: 2px solid var(--accent); flex-shrink: 0; }
@@ -153,58 +153,67 @@
   .footer { padding: 2rem 0 3rem; text-align: center; }
   .footer-link { font-size: 12px; color: var(--text-secondary); text-decoration: none; }
   .footer-link:hover { color: var(--text); }
+
+  /* Scroll animations */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up-delay-1 { transition-delay: 0.1s; }
+  .fade-up-delay-2 { transition-delay: 0.2s; }
+  .fade-up-delay-3 { transition-delay: 0.3s; }
+  .fade-up-delay-4 { transition-delay: 0.4s; }
+  .fade-up-delay-5 { transition-delay: 0.5s; }
 </style>
 </head>
 
 <nav class="navbar">
   <div class="navbar-inner">
-    <a class="navbar-name" href="/"><img src="logo-dark-nav.webp" alt="UX CIRCLES">林俊全</a>
+    <a class="navbar-name" href="/"><img src="logo-dark-nav.webp" alt="UX CIRCLES">給設計師的求職指南</a>
     <a class="navbar-cta" href="https://afterquitting.substack.com/" target="_blank">訂閱追蹤 →</a>
   </div>
 </nav>
 
 <section class="hero">
   <div>
-    <p class="hero-tag">給設計師的求職指南</p>
-    <h1 class="hero-title">投了很多履歷，卻不知道問題出在哪？</h1>
-    <p class="hero-sub">從職涯定位、履歷作品集、面試準備，到拿到 offer 後怎麼談薪水——31 篇文章，陸續在 Substack「裸辭之後」發布，寫給準備海外求職與轉職的設計師。</p>
-    <a class="hero-cta" href="https://afterquitting.substack.com/" target="_blank">訂閱，不錯過新文章 →</a>
-    <p class="hero-note">訂閱即可獲得 AI 求職 Prompt，未來電子書上架也會優先通知</p>
+    <p class="hero-tag fade-up">給設計師的求職指南</p>
+    <h1 class="hero-title fade-up fade-up-delay-1">投了很多履歷，卻不知道問題出在哪？</h1>
+    <p class="hero-sub fade-up fade-up-delay-2">從職涯定位、履歷作品集、面試準備，到拿到 offer 後怎麼談薪水——31 篇文章，陸續在 Substack「裸辭之後」發布，寫給準備海外求職與轉職的設計師。</p>
+    <a class="hero-cta fade-up fade-up-delay-3" href="https://afterquitting.substack.com/" target="_blank">訂閱，不錯過新文章 →</a>
+    <p class="hero-note fade-up fade-up-delay-3">訂閱即可獲得 AI 求職 Prompt，未來電子書上架也會優先通知</p>
   </div>
-  <img class="hero-img" src="guide-hero.webp" alt="求職路上的旅程意象">
+  <img class="hero-img fade-up fade-up-delay-2" src="guide-hero.webp" alt="求職路上的旅程意象">
 </section>
 
 <section class="section">
-  <h2 class="section-heading">聽起來熟悉嗎</h2>
+  <h2 class="section-heading fade-up">聽起來熟悉嗎</h2>
   <div class="pain-list">
-    <p class="pain-item">投了很多履歷，大多石沉大海，不知道問題出在履歷、作品集，還是別的地方</p>
-    <p class="pain-item">作品集改了好幾個月，還是不確定招募者會怎麼看</p>
-    <p class="pain-item">不知道自己適合新創還是大公司、In-house 還是 Agency</p>
-    <p class="pain-item">面試常常卡在自我介紹或專案簡報，講不出招募者記得住的故事</p>
-    <p class="pain-item">好不容易拿到 offer，卻不知道怎麼開口談薪水</p>
-    <p class="pain-item">想用 AI 加速求職，但不確定怎麼用才真的有幫助</p>
+    <p class="pain-item fade-up">投了很多履歷，大多石沉大海，不知道問題出在履歷、作品集，還是別的地方</p>
+    <p class="pain-item fade-up fade-up-delay-1">作品集改了好幾個月，還是不確定招募者會怎麼看</p>
+    <p class="pain-item fade-up fade-up-delay-2">不知道自己適合新創還是大公司、In-house 還是 Agency</p>
+    <p class="pain-item fade-up fade-up-delay-1">面試常常卡在自我介紹或專案簡報，講不出招募者記得住的故事</p>
+    <p class="pain-item fade-up fade-up-delay-2">好不容易拿到 offer，卻不知道怎麼開口談薪水</p>
+    <p class="pain-item fade-up fade-up-delay-3">想用 AI 加速求職，但不確定怎麼用才真的有幫助</p>
   </div>
 </section>
 
 <section class="section section-alt">
-  <h2 class="section-heading">讀完你會得到什麼</h2>
+  <h2 class="section-heading fade-up">讀完你會得到什麼</h2>
   <div class="value-grid">
-    <div class="value-card">
+    <div class="value-card fade-up">
       <p class="value-card-num">01</p>
       <p class="value-card-title">看懂自己真正在找什麼</p>
       <p class="value-card-desc">用核心能力而非頭銜評估職涯，新創 vs 大公司該怎麼選，不再靠感覺做決定。</p>
     </div>
-    <div class="value-card">
+    <div class="value-card fade-up fade-up-delay-1">
       <p class="value-card-num">02</p>
       <p class="value-card-title">做出招募者願意看完的履歷與作品集</p>
       <p class="value-card-desc">包含作品數量不夠、簽了 NDA 沒有畫面可放，這些常見卡點的具體解法。</p>
     </div>
-    <div class="value-card">
+    <div class="value-card fade-up fade-up-delay-2">
       <p class="value-card-num">03</p>
       <p class="value-card-title">面試不再靠運氣</p>
       <p class="value-card-desc">自我介紹、專案簡報、行為面試題、白板題、Take-home，每個環節都有具體做法。</p>
     </div>
-    <div class="value-card">
+    <div class="value-card fade-up fade-up-delay-3">
       <p class="value-card-num">04</p>
       <p class="value-card-title">拿到 Offer 後知道怎麼談</p>
       <p class="value-card-desc">談薪水的心理轉換、感謝信怎麼寫、新工作前 90 天怎麼站穩腳步。</p>
@@ -213,13 +222,13 @@
 </section>
 
 <section class="section section-alt2">
-  <div class="section-intro">
+  <div class="section-intro fade-up">
     <p class="section-title">完整目錄</p>
     <h2 class="section-heading">31 篇文章，四個章節加一個番外篇</h2>
     <p class="section-lead">已發布的可以直接閱讀，其餘會陸續更新。</p>
   </div>
 
-  <div class="chapter-row">
+  <div class="chapter-row fade-up">
     <img class="chapter-img" src="guide-ch1.webp" alt="第一章：先搞清楚你要找什麼">
     <div class="chapter-content">
       <p class="chapter-title">第一章｜先搞清楚你要找什麼</p>
@@ -235,7 +244,7 @@
     </div>
   </div>
 
-  <div class="chapter-row reverse">
+  <div class="chapter-row reverse fade-up">
     <img class="chapter-img" src="guide-ch2.webp" alt="第二章：讓人看見你">
     <div class="chapter-content">
       <p class="chapter-title">第二章｜讓人看見你</p>
@@ -255,7 +264,7 @@
     </div>
   </div>
 
-  <div class="chapter-row">
+  <div class="chapter-row fade-up">
     <img class="chapter-img" src="guide-ch3.webp" alt="第三章：走進面試現場">
     <div class="chapter-content">
       <p class="chapter-title">第三章｜走進面試現場</p>
@@ -274,7 +283,7 @@
     </div>
   </div>
 
-  <div class="chapter-row reverse">
+  <div class="chapter-row reverse fade-up">
     <img class="chapter-img" src="guide-ch4.webp" alt="第四章：拿到 Offer 之後">
     <div class="chapter-content">
       <p class="chapter-title">第四章｜拿到 Offer 之後</p>
@@ -287,7 +296,7 @@
     </div>
   </div>
 
-  <div class="chapter-row">
+  <div class="chapter-row fade-up">
     <img class="chapter-img" src="guide-ch-ai.webp" alt="番外篇：AI 時代怎麼玩">
     <div class="chapter-content">
       <p class="chapter-title">番外篇｜AI 時代怎麼玩</p>
@@ -302,9 +311,9 @@
 </section>
 
 <section class="section section-alt">
-  <h2 class="section-heading">適合誰讀</h2>
+  <h2 class="section-heading fade-up">適合誰讀</h2>
   <div class="audience-cols">
-    <div class="audience-col yes">
+    <div class="audience-col yes fade-up">
       <p class="audience-col-title">✓ 適合你，如果你是</p>
       <div class="audience-list">
         <p>準備海外求職或轉職的台灣設計師（UX / UI / Product Design）</p>
@@ -313,7 +322,7 @@
         <p>想系統性地走過整個求職流程，而不是東拼西湊零散資訊的人</p>
       </div>
     </div>
-    <div class="audience-col no">
+    <div class="audience-col no fade-up fade-up-delay-1">
       <p class="audience-col-title">✕ 可能不適合，如果你</p>
       <div class="audience-list">
         <p>想要一套保證上岸的公式或模板</p>
@@ -326,15 +335,15 @@
 
 <section class="section">
   <p class="section-title">關於作者</p>
-  <div class="about">
+  <div class="about fade-up">
     <img class="about-avatar" src="01E030F1-4800-4FDD-BCBD-3D43423B4B73.webp" alt="林俊全">
     <div>
       <p class="about-text"><strong>林俊全</strong>，台灣設計師，在倫敦做設計第八年。13 年以上產品設計經驗，曾任職 Acer、Synology，後移居倫敦，在 Wealthtech 新創擔任第一位員工與創始設計師，主導服務 UHNW 客戶、£9B+ 資產規模的金融平台設計，客戶滿意度達 89%。</p>
       <p class="about-text" style="margin-top: 0.9rem;">裸辭後走過完整的海外求職路，投遞 300 份申請、面試 80 場。現為 UX CIRCLES Founder &amp; Design Consultant，同時在一家 Fintech 新創擔任資深設計師，產品服務超過 300 萬用戶，也是 ADPList Top 1% 全球導師，累積 91 場一對一諮詢。</p>
     </div>
   </div>
-  <p class="stat-bar">13+ 年設計經驗　·　91 場 Mentoring　·　34 則五星評價　·　🏆 ADPList Top 1% Global Mentor</p>
-  <div class="badge-card">
+  <p class="stat-bar fade-up fade-up-delay-1">13+ 年設計經驗　·　91 場 Mentoring　·　34 則五星評價　·　🏆 ADPList Top 1% Global Mentor</p>
+  <div class="badge-card fade-up fade-up-delay-2">
     <p class="badge-card-emoji">🏆</p>
     <p class="badge-card-title">ADPList Super Mentor</p>
     <p class="badge-card-sub">Top 1% Global Mentor</p>
@@ -344,27 +353,27 @@
 
 <section class="section reader-section">
   <p class="section-title">內容影響力</p>
-  <p class="reader-stats">340+ 位讀者訂閱《<a href="https://afterquitting.substack.com/" target="_blank">裸辭之後</a>》　·　2,300+ 位讀者在 <a href="https://chunchuanlin.medium.com/" target="_blank">Medium</a> 追蹤</p>
+  <p class="reader-stats fade-up">340+ 位讀者訂閱《<a href="https://afterquitting.substack.com/" target="_blank">裸辭之後</a>》　·　2,300+ 位讀者在 <a href="https://chunchuanlin.medium.com/" target="_blank">Medium</a> 追蹤</p>
 </section>
 
 <section class="section section-alt">
-  <h2 class="section-heading">讀者怎麼說</h2>
+  <h2 class="section-heading fade-up">讀者怎麼說</h2>
   <div class="testimonial-grid">
-    <div class="testimonial-card">
+    <div class="testimonial-card fade-up">
       <p class="testimonial-text">「他非常用心地講了很多求職經驗，舉例說明也包含很多細節，非常客觀，經驗也很充足，講明了我的疑慮，而且非常實際有用。因為他有足夠的英國本地 Senior Product Designer 經驗，他的文章和講解在我求職路上很大程度指明了一條路。面對異國環境，有很多文化差異與語言問題，我時常感到焦慮或迷茫，你的意見對當時的我來說太有效了，真的很感謝你。」</p>
       <div>
         <p class="testimonial-name">Clara L.</p>
         <p class="testimonial-role">Senior Product Designer</p>
       </div>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card fade-up fade-up-delay-1">
       <p class="testimonial-text">「Chun-Chuan is really kind and professional. He gave me incredibly solid and helpful advice on my CV and portfolio. Instead of just giving surface-level feedback, he asked thoughtful follow-up questions to provide deeper, more detailed suggestions for improvement. Even though I have used several mentoring services before, Chun-Chuan's advice was much more concrete and directly addressed my specific situation and problems.」</p>
       <div>
         <p class="testimonial-name">TJYD</p>
         <p class="testimonial-role">UX Designer, Freelancer</p>
       </div>
     </div>
-    <div class="testimonial-card">
+    <div class="testimonial-card fade-up fade-up-delay-2">
       <p class="testimonial-text">「很好的幫助我釐清 case study 邏輯，用不同面向的角度切入 presentation 確保對讀者來說清楚易懂！」</p>
       <div>
         <p class="testimonial-name">Julie</p>
@@ -376,33 +385,47 @@
 </section>
 
 <section class="section">
-  <h2 class="section-heading">常見問題</h2>
-  <div class="faq-item">
+  <h2 class="section-heading fade-up">常見問題</h2>
+  <div class="faq-item fade-up">
     <p class="faq-q">這些文章多久更新一次？</p>
     <p class="faq-a">目前規劃每週更新，實際頻率會依工作狀況調整。訂閱 Substack 會在新文章發布時直接收到通知，不用自己回來查。</p>
   </div>
-  <div class="faq-item">
+  <div class="faq-item fade-up">
     <p class="faq-q">之後真的會集結成電子書出售嗎？</p>
     <p class="faq-a">是目前的規劃。等內容累積到一定量，會整理成電子書，並加入實用工具與清單，訂閱的人會最先知道上架消息，也會有訂閱者專屬優惠。</p>
   </div>
-  <div class="faq-item">
+  <div class="faq-item fade-up">
     <p class="faq-q">我不是想去海外工作，只是想在台灣轉職，適合看嗎？</p>
     <p class="faq-a">大部分策略（職涯定位、履歷、作品集、面試）不管在哪裡求職都通用，只有少數幾篇特別針對海外或英國市場，可以依自己需求挑著讀。</p>
   </div>
-  <div class="faq-item">
+  <div class="faq-item fade-up">
     <p class="faq-q">免費看得到全部內容嗎？</p>
     <p class="faq-a">大部分文章會先在 Substack 免費公開連載，少數內容未來可能規劃為付費專屬，實際安排會依文章性質調整。之後集結成電子書時，也會加入額外整理與工具。</p>
   </div>
 </section>
 
 <section class="final-cta">
-  <p class="final-cta-title">訂閱「裸辭之後」</p>
-  <p class="final-cta-desc">訂閱即可獲得 AI 求職 Prompt，新文章發布時直接通知你，未來電子書上架也會優先讓訂閱的人知道。</p>
-  <a class="final-cta-btn" href="https://afterquitting.substack.com/" target="_blank">訂閱追蹤 →</a>
+  <p class="final-cta-title fade-up">訂閱「裸辭之後」</p>
+  <p class="final-cta-desc fade-up fade-up-delay-1">訂閱即可獲得 AI 求職 Prompt，新文章發布時直接通知你，未來電子書上架也會優先讓訂閱的人知道。</p>
+  <a class="final-cta-btn fade-up fade-up-delay-2" href="https://afterquitting.substack.com/" target="_blank">訂閱追蹤 →</a>
 </section>
 
 <div class="footer">
   <a class="footer-link" href="/">← 回到主頁</a>
 </div>
+
+<script>
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => {
+  fadeObserver.observe(el);
+});
+</script>
 
 </html>
