@@ -120,6 +120,19 @@
   .about-text { font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
   .about-text strong { color: var(--text); }
 
+  .stat-bar { text-align: center; font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); line-height: 1.9; }
+
+  .badge-card { max-width: 300px; margin: 1.5rem auto 0; text-align: center; border: 1px solid var(--accent); border-radius: 12px; padding: 1.5rem; background: rgba(107,125,232,0.06); }
+  .badge-card-emoji { font-size: 26px; margin-bottom: 0.5rem; }
+  .badge-card-title { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 600; color: var(--text); }
+  .badge-card-sub { font-size: 13px; color: var(--accent); margin-top: 0.2rem; }
+  .badge-card-cert { font-size: 11px; color: var(--text-tertiary); margin-top: 0.9rem; letter-spacing: 0.03em; }
+
+  .reader-section { text-align: center; }
+  .reader-stats { font-size: 14px; color: var(--text-secondary); margin-top: 0.75rem; }
+  .reader-stats a { color: var(--text-secondary); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .reader-stats a:hover { color: var(--accent); border-color: var(--accent); }
+
   .final-cta { text-align: center; padding: 3.5rem 0; }
   .final-cta-title { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 600; margin-bottom: 0.75rem; }
   .final-cta-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.8; }
@@ -146,7 +159,7 @@
     <h1 class="hero-title">投了很多履歷，卻不知道問題出在哪？</h1>
     <p class="hero-sub">從職涯定位、履歷作品集、面試準備，到拿到 offer 後怎麼談薪水——30 篇文章，陸續在 Substack「裸辭之後」發布，寫給準備海外求職與轉職的設計師。</p>
     <a class="hero-cta" href="https://afterquitting.substack.com/" target="_blank">訂閱，不錯過新文章 →</a>
-    <p class="hero-note">未來會集結成電子書，訂閱的人優先知道</p>
+    <p class="hero-note">訂閱即可獲得 AI 求職 Prompt，未來電子書上架也會優先通知</p>
   </div>
   <img class="hero-img" src="guide-hero.webp" alt="求職路上的旅程意象">
 </section>
@@ -304,8 +317,23 @@
   <p class="section-title">關於作者</p>
   <div class="about">
     <img class="about-avatar" src="01E030F1-4800-4FDD-BCBD-3D43423B4B73.webp" alt="林俊全">
-    <p class="about-text"><strong>林俊全</strong>，在倫敦做設計第八年。曾投遞 300 份申請、面試 80 場，走過完整的海外求職路。現為 UX CIRCLES Founder，透過分享會、一對一諮詢，協助台灣設計師準備海外求職與轉職。</p>
+    <div>
+      <p class="about-text"><strong>林俊全</strong>，台灣設計師，在倫敦做設計第八年。13 年以上產品設計經驗，曾任職 Acer、Synology，後移居倫敦，在 Wealthtech 新創擔任第一位員工與創始設計師，主導服務 UHNW 客戶、£9B+ 資產規模的金融平台設計，客戶滿意度達 89%。</p>
+      <p class="about-text" style="margin-top: 0.9rem;">裸辭後走過完整的海外求職路，投遞 300 份申請、面試 80 場。現為 UX CIRCLES Founder &amp; Design Consultant，同時在一家 Fintech 新創擔任資深設計師，產品服務超過 300 萬用戶，也是 ADPList Top 1% 全球導師，累積 91 場一對一諮詢。</p>
+    </div>
   </div>
+  <p class="stat-bar">13+ 年設計經驗　·　91 場 Mentoring　·　34 則五星評價　·　🏆 ADPList Top 1% Global Mentor</p>
+  <div class="badge-card">
+    <p class="badge-card-emoji">🏆</p>
+    <p class="badge-card-title">ADPList Super Mentor</p>
+    <p class="badge-card-sub">Top 1% Global Mentor</p>
+    <p class="badge-card-cert">由 ADPList 全球導師社群認證</p>
+  </div>
+</section>
+
+<section class="section reader-section">
+  <p class="section-title">內容影響力</p>
+  <p class="reader-stats">340+ 位讀者訂閱《<a href="https://afterquitting.substack.com/" target="_blank">裸辭之後</a>》　·　2,300+ 位讀者在 <a href="https://chunchuanlin.medium.com/" target="_blank">Medium</a> 追蹤</p>
 </section>
 
 <section class="section">
@@ -330,7 +358,7 @@
 
 <section class="final-cta">
   <p class="final-cta-title">訂閱「裸辭之後」</p>
-  <p class="final-cta-desc">新文章發布時直接通知你，未來電子書上架也會優先讓訂閱的人知道。</p>
+  <p class="final-cta-desc">訂閱即可獲得 AI 求職 Prompt，新文章發布時直接通知你，未來電子書上架也會優先讓訂閱的人知道。</p>
   <a class="final-cta-btn" href="https://afterquitting.substack.com/" target="_blank">訂閱追蹤 →</a>
 </section>
 
