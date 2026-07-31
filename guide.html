@@ -120,11 +120,17 @@
   .about-text { font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
   .about-text strong { color: var(--text); }
 
-  .credential-line { font-size: 14px; color: var(--text-secondary); letter-spacing: 0.01em; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); line-height: 1.8; }
-  .credential-line strong { color: var(--accent); font-weight: 600; }
-  .credential-sub { font-size: 13px; color: var(--text-tertiary); margin-top: 0.5rem; }
-  .credential-sub a { color: var(--text-tertiary); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
-  .credential-sub a:hover { color: var(--accent); border-color: var(--accent); }
+  .stat-bar { text-align: center; font-size: 13px; color: var(--text-secondary); letter-spacing: 0.02em; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); line-height: 1.9; }
+
+  .badge-card { max-width: 300px; margin: 1.5rem auto 0; text-align: center; border: 1px solid var(--accent); border-radius: 12px; padding: 1.5rem; background: rgba(107,125,232,0.06); }
+  .badge-card-emoji { font-size: 26px; margin-bottom: 0.5rem; }
+  .badge-card-title { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 600; color: var(--text); }
+  .badge-card-sub { font-size: 13px; color: var(--accent); margin-top: 0.2rem; }
+  .badge-card-cert { font-size: 11px; color: var(--text-tertiary); margin-top: 0.9rem; letter-spacing: 0.03em; }
+
+  .reader-stats { text-align: center; font-size: 14px; color: var(--text-secondary); margin-top: 1.5rem; }
+  .reader-stats a { color: var(--text-secondary); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+  .reader-stats a:hover { color: var(--accent); border-color: var(--accent); }
 
   .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
   @media (max-width: 700px) { .testimonial-grid { grid-template-columns: 1fr; } }
@@ -331,12 +337,18 @@
   <div class="about fade-up">
     <img class="about-avatar" src="01E030F1-4800-4FDD-BCBD-3D43423B4B73.webp" alt="林俊全">
     <div>
-      <p class="about-text"><strong>林俊全</strong>，台灣設計師，在倫敦做設計第八年。13 年以上產品設計經驗，曾任職 Acer、Synology，後移居倫敦，在 Wealthtech 新創擔任第一位員工與創始設計師，主導服務 UHNW 客戶、£9B+ 資產規模的金融平台設計，客戶滿意度達 89%。</p>
-      <p class="about-text" style="margin-top: 0.9rem;">裸辭後走過完整的海外求職路，投遞 300 份申請、面試 80 場。現為 UX CIRCLES Founder &amp; Design Consultant，同時在一家 Fintech 新創擔任資深設計師，產品服務超過 300 萬用戶，累積 91 場一對一諮詢。</p>
+      <p class="about-text"><strong>林俊全</strong>，台灣設計師，13 年以上產品設計經驗。曾任職 Acer、Synology，後移居倫敦，在倫敦做設計第八年，於 Wealthtech 新創擔任第一位員工與創始設計師，主導服務 UHNW 客戶、£9B+ 資產規模的金融平台設計，客戶滿意度達 89%。</p>
+      <p class="about-text" style="margin-top: 0.9rem;">裸辭後走過完整的海外求職路，投遞 300 份申請、面試 80 場。現為 UX CIRCLES Founder &amp; Design Consultant，同時擔任一家 Fintech 新創的資深設計師，產品服務超過 300 萬用戶。</p>
     </div>
   </div>
-  <p class="credential-line fade-up fade-up-delay-1">🏆 <strong>ADPList Top 1% Global Mentor</strong>　·　91 場 Mentoring　·　34 則五星評價　·　13+ 年設計經驗</p>
-  <p class="credential-sub fade-up fade-up-delay-2">340+ 位讀者訂閱《<a href="https://afterquitting.substack.com/" target="_blank">裸辭之後</a>》　·　2,300+ 位讀者在 <a href="https://chunchuanlin.medium.com/" target="_blank">Medium</a> 追蹤</p>
+  <p class="stat-bar fade-up fade-up-delay-1">13+ 年設計經驗　·　91 場 Mentoring　·　34 則五星評價</p>
+  <div class="badge-card fade-up fade-up-delay-2">
+    <p class="badge-card-emoji">🏆</p>
+    <p class="badge-card-title">ADPList Super Mentor</p>
+    <p class="badge-card-sub">Top 1% Global Mentor</p>
+    <p class="badge-card-cert">由 ADPList 全球導師社群認證</p>
+  </div>
+  <p class="reader-stats fade-up fade-up-delay-3">340+ 位讀者訂閱《<a href="https://afterquitting.substack.com/" target="_blank">裸辭之後</a>》　·　2,300+ 位讀者在 <a href="https://chunchuanlin.medium.com/" target="_blank">Medium</a> 追蹤</p>
 </section>
 
 <section class="section section-alt">
