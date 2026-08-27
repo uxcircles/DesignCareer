@@ -55,6 +55,9 @@
   .hero-sub { font-size: 15px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 2rem; max-width: 480px; }
   .hero-cta { display: inline-block; padding: 12px 24px; background: var(--accent); color: #0F1117; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
   .hero-cta:hover { opacity: 0.85; }
+  .hero-cta.outline { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.18); }
+  .hero-cta.outline:hover { opacity: 0.85; background: rgba(255,255,255,0.05); }
+  .hero-cta-row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
   .hero-note { font-size: 12px; color: var(--text-tertiary); margin-top: 0.75rem; }
 
   .section { padding: 3rem 0; }
@@ -140,6 +143,18 @@
   .testimonial-role { font-size: 12px; color: var(--text-tertiary); margin-top: 0.15rem; }
   .testimonial-more { text-align: center; margin-top: 2rem; font-size: 13px; }
   .testimonial-more a { color: var(--text-secondary); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+
+  .pricing-card { max-width: 440px; margin: 0 auto; text-align: center; border: 1px solid var(--accent); border-radius: 16px; padding: 3rem 2rem; background: rgba(107,125,232,0.06); }
+  .pricing-badge { display: inline-block; font-size: 11px; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; border: 1px solid rgba(107,125,232,0.4); border-radius: 999px; padding: 4px 14px; margin-bottom: 1.5rem; }
+  .pricing-row { display: flex; align-items: baseline; justify-content: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .pricing-now { font-family: 'Noto Serif TC', serif; font-size: 38px; font-weight: 600; color: var(--accent); }
+  .pricing-was { font-size: 16px; color: var(--text-tertiary); text-decoration: line-through; }
+  .pricing-note { font-size: 12px; color: var(--text-tertiary); margin-bottom: 2rem; }
+  .pricing-features { display: flex; flex-direction: column; gap: 0.75rem; text-align: left; margin-bottom: 2rem; }
+  .pricing-features p { display: flex; gap: 10px; font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .pricing-features p::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); flex-shrink: 0; margin-top: 6px; }
+  .pricing-cta { display: block; padding: 14px; background: var(--accent); color: #0F1117; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; }
+  .pricing-cta:hover { opacity: 0.85; }
   .testimonial-more a:hover { color: var(--accent); border-color: var(--accent); }
 
   .final-cta { text-align: center; padding: 3.5rem 0; }
@@ -167,7 +182,7 @@
 <nav class="navbar">
   <div class="navbar-inner">
     <a class="navbar-name" href="/"><img src="logo-dark-nav.webp" alt="UX CIRCLES">給設計師的求職指南</a>
-    <a class="navbar-cta" href="https://afterquitting.substack.com/" target="_blank">訂閱追蹤 →</a>
+    <a class="navbar-cta" href="#pricing">早鳥預購 →</a>
   </div>
 </nav>
 
@@ -176,8 +191,11 @@
     <p class="hero-tag fade-up">給設計師的求職指南</p>
     <h1 class="hero-title fade-up fade-up-delay-1">投了很多履歷，卻不知道問題出在哪？</h1>
     <p class="hero-sub fade-up fade-up-delay-2">從職涯定位、履歷作品集、面試準備，到拿到 offer 後怎麼談薪水——32 篇文章，陸續在 Substack「裸辭之後」發布，寫給準備海外求職與轉職的設計師。</p>
-    <a class="hero-cta fade-up fade-up-delay-3" href="https://afterquitting.substack.com/" target="_blank">訂閱，不錯過新文章 →</a>
-    <p class="hero-note fade-up fade-up-delay-3">訂閱即可獲得 AI 求職 Prompt，未來電子書上架也會優先通知</p>
+    <div class="hero-cta-row fade-up fade-up-delay-3">
+      <a class="hero-cta" href="#pricing">早鳥預購 NT$1,280</a>
+      <a class="hero-cta outline" href="https://afterquitting.substack.com/" target="_blank">免費訂閱追蹤</a>
+    </div>
+    <p class="hero-note fade-up fade-up-delay-3">訂閱即可獲得 AI 求職 Prompt，新文章發布同步收到通知</p>
   </div>
   <img class="hero-img fade-up fade-up-delay-2" src="guide-hero.webp" alt="求職路上的旅程意象">
 </section>
@@ -379,6 +397,24 @@
   </div>
 </section>
 
+<section class="section" id="pricing">
+  <h2 class="section-heading fade-up">現在預購</h2>
+  <div class="pricing-card fade-up">
+    <span class="pricing-badge">早鳥優惠</span>
+    <div class="pricing-row">
+      <span class="pricing-now">NT$1,280</span>
+      <span class="pricing-was">NT$1,980</span>
+    </div>
+    <p class="pricing-note">早鳥期結束後恢復 NT$1,980</p>
+    <div class="pricing-features">
+      <p>完整電子書：32 篇文章，四個章節加一個番外篇</p>
+      <p>已發布章節現在就能讀，其餘持續撰寫中，完成後自動更新</p>
+      <p>早鳥價鎖住優惠，之後新增內容與勘誤終身免費</p>
+    </div>
+    <a class="pricing-cta" href="https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n" target="_blank">早鳥預購 NT$1,280 →</a>
+  </div>
+</section>
+
 <section class="section">
   <h2 class="section-heading fade-up">常見問題</h2>
   <div class="faq-item fade-up">
@@ -386,16 +422,16 @@
     <p class="faq-a">目前規劃每週更新，實際頻率會依工作狀況調整。訂閱 Substack 會在新文章發布時直接收到通知，不用自己回來查。</p>
   </div>
   <div class="faq-item fade-up">
-    <p class="faq-q">之後真的會集結成電子書出售嗎？</p>
-    <p class="faq-a">是目前的規劃。等內容累積到一定量，會整理成電子書，並加入實用工具與清單，訂閱的人會最先知道上架消息，也會有訂閱者專屬優惠。</p>
+    <p class="faq-q">現在下單，什麼時候可以開始閱讀？</p>
+    <p class="faq-a">付款完成後會直接顯示 Notion 電子書連結，已發布的章節馬上就能讀。其餘章節持續撰寫中，完成後會直接更新在同一個頁面，不需要重新購買或等待全部寫完。</p>
   </div>
   <div class="faq-item fade-up">
     <p class="faq-q">我不是想去海外工作，只是想在台灣轉職，適合看嗎？</p>
     <p class="faq-a">大部分策略（職涯定位、履歷、作品集、面試）不管在哪裡求職都通用，只有少數幾篇特別針對海外或英國市場，可以依自己需求挑著讀。</p>
   </div>
   <div class="faq-item fade-up">
-    <p class="faq-q">免費看得到全部內容嗎？</p>
-    <p class="faq-a">大部分文章會先在 Substack 免費公開連載，少數內容未來可能規劃為付費專屬，實際安排會依文章性質調整。之後集結成電子書時，也會加入額外整理與工具。</p>
+    <p class="faq-q">跟 Substack 上免費的文章有什麼不同？</p>
+    <p class="faq-a">Substack 上的連載文章會維持免費公開閱讀。電子書版本額外整理成 Notion 頁面，方便閱讀與查找，並持續加入實用工具與清單，這部分需要透過早鳥預購取得完整存取權限。</p>
   </div>
 </section>
 
