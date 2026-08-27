@@ -833,6 +833,7 @@ const testimonials = [
   { text: "謝謝願意撥時間分享～剛聊完收穫很多，特別是聽到你分享怎麼在設計流程裡使用 AI，能知道其他設計師具體怎麼做非常有幫助。另外小眾接案平台的分享也很實用，對我來說是新資訊！非常感謝你大方分享這些實戰觀點 😊", name: "V.C.", role: "Product Designer, Perflection AI" },
   { text: "很好的幫助我釐清 case study 邏輯，用不同面向的角度切入 presentation 確保對讀者來說清楚易懂！", name: "Julie S.", role: "CX Manager, ex-Nissan" },
   { text: "謝謝你的分享和建議，很多 CV 細節和面試的問題都是我自己沒有發現、但絕對可以加強的地方，尤其是面試的部分，好多建議都好實用！", name: "Yuting", role: "Visual Designer" },
+  { text: "透過這次諮詢，我在 Portfolio 優化、公司定位、如何用 AI 精進 Case Study 敘事，以及產業對 AI 流程整合人才的需求上，都得到了非常具體且可立即執行的建議。回饋速度快，方向也切中現階段產業真正在意的重點。", name: "Astro", role: "Product Designer, Big Data" },
 ];
 
 function makeCard(t) {
@@ -907,9 +908,9 @@ const statsObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const delay = entry.target.closest('.hero') ? 900 : 0;
       setTimeout(() => {
-        animateCount(document.getElementById('stat-sessions'), 93, '', 1500, false);
-        animateCount(document.getElementById('stat-mins'), 3140, '', 2000, true);
-        animateCount(document.getElementById('stat-reviews'), 35, '則', 1200, false);
+        animateCount(document.getElementById('stat-sessions'), 94, '', 1500, false);
+        animateCount(document.getElementById('stat-mins'), 3160, '', 2000, true);
+        animateCount(document.getElementById('stat-reviews'), 36, '則', 1200, false);
       }, delay);
       statsObserver.disconnect();
     }
