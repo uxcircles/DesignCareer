@@ -469,6 +469,18 @@ const fadeObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-up').forEach(el => {
   fadeObserver.observe(el);
 });
+
+// Track buy-button clicks
+document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(link => {
+  link.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'click_buy_ebook', {
+        event_category: 'ebook',
+        event_label: link.classList.contains('pricing-cta') ? 'pricing_section' : 'final_cta_section'
+      });
+    }
+  });
+});
 </script>
 
 </html>
