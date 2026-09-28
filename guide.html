@@ -190,7 +190,7 @@
 <nav class="navbar">
   <div class="navbar-inner">
     <a class="navbar-name" href="/"><img src="logo-dark-nav.webp" alt="UX CIRCLES">給設計師的求職指南</a>
-    <a class="navbar-cta" href="#pricing">立即購買</a>
+    <a class="navbar-cta" href="https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n" target="_blank">立即購買</a>
   </div>
 </nav>
 
@@ -532,7 +532,21 @@ document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(link => {
     if (typeof gtag === 'function') {
       gtag('event', 'click_buy_ebook', {
         event_category: 'ebook',
-        event_label: link.classList.contains('pricing-cta') ? 'pricing_section' : 'final_cta_section'
+        event_label: link.classList.contains('pricing-cta') ? 'pricing_section'
+          : link.classList.contains('navbar-cta') ? 'navbar'
+          : 'final_cta_section'
+      });
+    }
+  });
+});
+
+// Track hero buy-button clicks (scrolls to pricing, not Stripe)
+document.querySelectorAll('.hero-cta[href="#pricing"]').forEach(link => {
+  link.addEventListener('click', () => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'click_hero_buy', {
+        event_category: 'ebook',
+        event_label: 'hero_section'
       });
     }
   });
