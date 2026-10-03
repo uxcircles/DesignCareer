@@ -196,15 +196,15 @@
 
 <section class="hero">
   <div>
-    <p class="hero-tag fade-up">電子書 · 限時優惠中</p>
+    <p class="hero-tag fade-up">電子書<span data-promo> · 限時優惠中</span></p>
     <h1 class="hero-title fade-up fade-up-delay-1">投了很多履歷，卻不知道問題出在哪？</h1>
     <p class="hero-sub fade-up fade-up-delay-2">從職涯定位、履歷作品集、面試準備，到拿到 offer 後怎麼談薪水——35 篇文章已經全部寫完，寫給準備海外求職與轉職的設計師。</p>
     <p class="countdown countdown-hero fade-up fade-up-delay-3" data-countdown></p>
     <div class="hero-cta-row fade-up fade-up-delay-3">
-      <a class="hero-cta" href="#pricing">立即購買 NT$1,280</a>
+      <a class="hero-cta" href="#pricing">立即購買 <span data-price>NT$1,280</span></a>
       <a class="hero-cta outline" href="https://afterquitting.substack.com/" target="_blank">免費訂閱追蹤</a>
     </div>
-    <p class="hero-note fade-up fade-up-delay-3">原價 NT$1,980，限時優惠只到 10/4</p>
+    <p class="hero-note fade-up fade-up-delay-3" data-promo>原價 NT$1,980，限時優惠只到 10/4</p>
   </div>
   <img class="hero-img fade-up fade-up-delay-2" src="guide-hero.webp" alt="求職路上的旅程意象">
 </section>
@@ -428,12 +428,12 @@
 <section class="section" id="pricing">
   <h2 class="section-heading fade-up">現在購買</h2>
   <div class="pricing-card fade-up">
-    <span class="pricing-badge">限時優惠</span>
+    <span class="pricing-badge" data-promo>限時優惠</span>
     <div class="pricing-row">
-      <span class="pricing-now">NT$1,280</span>
-      <span class="pricing-was">NT$1,980</span>
+      <span class="pricing-now" data-price>NT$1,280</span>
+      <span class="pricing-was" data-promo>NT$1,980</span>
     </div>
-    <p class="pricing-note">限時優惠至 10/4，之後恢復 NT$1,980</p>
+    <p class="pricing-note" data-promo>限時優惠至 10/4，之後恢復 NT$1,980</p>
     <div class="pricing-features">
       <p>光是一次 30 分鐘 1:1 諮詢就要 NT$2,000，這本書把完整方法論整理成 35 篇文章，價格不到一次諮詢</p>
       <p>全書 35 篇已經寫完，付款後立即解鎖完整版，不用等 Substack 連載到明年 2 月</p>
@@ -442,7 +442,7 @@
       <p>現在購買，之後新增內容與勘誤終身免費</p>
     </div>
     <p class="countdown" data-countdown></p>
-    <a class="pricing-cta" href="https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n" target="_blank">立即購買 NT$1,280</a>
+    <a class="pricing-cta" href="https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n" target="_blank">立即購買 <span data-price>NT$1,280</span></a>
     <p class="pricing-guarantee">讀完不滿意？7 天內全額退款</p>
   </div>
 </section>
@@ -473,9 +473,9 @@
 
 <section class="final-cta">
   <p class="final-cta-title fade-up">全書已完成，不用等到明年 2 月</p>
-  <p class="final-cta-desc fade-up fade-up-delay-1">9-10 月是海外求職高峰，現在購買就能立刻讀完整本 35 篇，不用等免費連載慢慢放完。限時優惠只到 10/4。</p>
-  <a class="final-cta-btn fade-up fade-up-delay-2" href="https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n" target="_blank">立即購買 NT$1,280</a>
-  <p class="final-cta-note fade-up fade-up-delay-2">原價 NT$1,980</p>
+  <p class="final-cta-desc fade-up fade-up-delay-1">9-10 月是海外求職高峰，現在購買就能立刻讀完整本 35 篇，不用等免費連載慢慢放完。<span data-promo>限時優惠只到 10/4。</span></p>
+  <a class="final-cta-btn fade-up fade-up-delay-2" href="https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n" target="_blank">立即購買 <span data-price>NT$1,280</span></a>
+  <p class="final-cta-note fade-up fade-up-delay-2" data-promo>原價 NT$1,980</p>
   <a class="final-cta-sub fade-up fade-up-delay-2" href="https://afterquitting.substack.com/" target="_blank">還沒準備好？先免費訂閱追蹤</a>
 </section>
 
@@ -493,13 +493,22 @@ document.querySelectorAll('.article-status[data-date]').forEach(el => {
   }
 });
 
-// Early-bird countdown (deadline: end of day, Taiwan time)
+// Limited-time offer countdown (deadline: end of day, Taiwan time)
+// After the deadline, switch the page to full price automatically.
+const PROMO_LINK = 'https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n';
+const FULL_PRICE_LINK = 'https://buy.stripe.com/28E14ng0m2DN4Oqfwt9bO0o';
+function endPromo() {
+  document.querySelectorAll(`a[href="${PROMO_LINK}"]`).forEach(a => { a.href = FULL_PRICE_LINK; });
+  document.querySelectorAll('[data-price]').forEach(el => { el.textContent = 'NT$1,980'; });
+  document.querySelectorAll('[data-promo], [data-countdown]').forEach(el => { el.style.display = 'none'; });
+  document.querySelector('.pricing-row').style.marginBottom = '2rem';
+}
 const earlyBirdEnd = new Date('2026-10-04T23:59:59+08:00').getTime();
 const countdownEls = document.querySelectorAll('[data-countdown]');
 function updateCountdown() {
   const diff = earlyBirdEnd - Date.now();
   if (diff <= 0) {
-    countdownEls.forEach(el => { el.textContent = '限時優惠已結束'; });
+    endPromo();
     clearInterval(countdownTimer);
     return;
   }
