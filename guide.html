@@ -148,13 +148,10 @@
 
   .pricing-card { max-width: 440px; margin: 0 auto; text-align: center; border: 1px solid var(--accent); border-radius: 16px; padding: 3rem 2rem; background: rgba(107,125,232,0.06); }
   .pricing-badge { display: inline-block; font-size: 11px; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; border: 1px solid rgba(107,125,232,0.4); border-radius: 999px; padding: 4px 14px; margin-bottom: 1.5rem; }
-  .pricing-row { display: flex; align-items: baseline; justify-content: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .pricing-row { display: flex; align-items: baseline; justify-content: center; gap: 0.75rem; margin-bottom: 2rem; }
   .pricing-now { font-family: 'Noto Serif TC', serif; font-size: 38px; font-weight: 600; color: var(--accent); }
   .pricing-was { font-size: 16px; color: var(--text-tertiary); text-decoration: line-through; }
   .pricing-note { font-size: 12px; color: var(--text-tertiary); margin-bottom: 2rem; }
-  .countdown { font-size: 13px; color: var(--accent); margin-bottom: 0.75rem; font-variant-numeric: tabular-nums; }
-  .countdown:empty { display: none; }
-  .countdown-hero { margin-top: -1.25rem; }
   .pricing-features { display: flex; flex-direction: column; gap: 0.75rem; text-align: left; margin-bottom: 2rem; }
   .pricing-features p { display: flex; gap: 10px; font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
   .pricing-features p::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); flex-shrink: 0; margin-top: 6px; }
@@ -190,21 +187,19 @@
 <nav class="navbar">
   <div class="navbar-inner">
     <a class="navbar-name" href="/"><img src="logo-dark-nav.webp" alt="UX CIRCLES">給設計師的求職指南</a>
-    <a class="navbar-cta" href="https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n" target="_blank">立即購買</a>
+    <a class="navbar-cta" href="https://buy.stripe.com/28E14ng0m2DN4Oqfwt9bO0o" target="_blank">立即購買</a>
   </div>
 </nav>
 
 <section class="hero">
   <div>
-    <p class="hero-tag fade-up">電子書<span data-promo> · 限時優惠中</span></p>
+    <p class="hero-tag fade-up">電子書</p>
     <h1 class="hero-title fade-up fade-up-delay-1">投了很多履歷，卻不知道問題出在哪？</h1>
     <p class="hero-sub fade-up fade-up-delay-2">從職涯定位、履歷作品集、面試準備，到拿到 offer 後怎麼談薪水——37 篇文章已經全部寫完，寫給準備海外求職與轉職的設計師。</p>
-    <p class="countdown countdown-hero fade-up fade-up-delay-3" data-countdown></p>
     <div class="hero-cta-row fade-up fade-up-delay-3">
-      <a class="hero-cta" href="#pricing">立即購買 <span data-price>NT$1,280</span></a>
+      <a class="hero-cta" href="#pricing">立即購買 NT$1,980</a>
       <a class="hero-cta outline" href="https://afterquitting.substack.com/" target="_blank">免費訂閱追蹤</a>
     </div>
-    <p class="hero-note fade-up fade-up-delay-3" data-promo>原價 NT$1,980，限時優惠只到 10/4</p>
   </div>
   <img class="hero-img fade-up fade-up-delay-2" src="guide-hero.webp" alt="求職路上的旅程意象">
 </section>
@@ -430,12 +425,9 @@
 <section class="section" id="pricing">
   <h2 class="section-heading fade-up">現在購買</h2>
   <div class="pricing-card fade-up">
-    <span class="pricing-badge" data-promo>限時優惠</span>
     <div class="pricing-row">
-      <span class="pricing-now" data-price>NT$1,280</span>
-      <span class="pricing-was" data-promo>NT$1,980</span>
+      <span class="pricing-now">NT$1,980</span>
     </div>
-    <p class="pricing-note" data-promo>限時優惠至 10/4，之後恢復 NT$1,980</p>
     <div class="pricing-features">
       <p>光是一次 30 分鐘 1:1 諮詢就要 NT$2,000，這本書把完整方法論整理成 37 篇文章，價格不到一次諮詢</p>
       <p>全書 37 篇已經寫完，付款後立即解鎖完整版，不用等 Substack 連載到明年 2 月</p>
@@ -443,8 +435,7 @@
       <p>加碼 5 份實用範本（求職追蹤表、面試復盤紀錄、Offer 比較清單、薪資談判準備清單、股權估值試算表）＋ 書中實際使用的 AI Prompt 合集</p>
       <p>現在購買，之後新增內容與勘誤終身免費</p>
     </div>
-    <p class="countdown" data-countdown></p>
-    <a class="pricing-cta" href="https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n" target="_blank">立即購買 <span data-price>NT$1,280</span></a>
+    <a class="pricing-cta" href="https://buy.stripe.com/28E14ng0m2DN4Oqfwt9bO0o" target="_blank">立即購買 NT$1,980</a>
     <p class="pricing-guarantee">讀完不滿意？7 天內全額退款</p>
   </div>
 </section>
@@ -475,9 +466,8 @@
 
 <section class="final-cta">
   <p class="final-cta-title fade-up">全書已完成，不用等到明年 2 月</p>
-  <p class="final-cta-desc fade-up fade-up-delay-1">9-10 月是海外求職高峰，現在購買就能立刻讀完整本 37 篇，不用等免費連載慢慢放完。<span data-promo>限時優惠只到 10/4。</span></p>
-  <a class="final-cta-btn fade-up fade-up-delay-2" href="https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n" target="_blank">立即購買 <span data-price>NT$1,280</span></a>
-  <p class="final-cta-note fade-up fade-up-delay-2" data-promo>原價 NT$1,980</p>
+  <p class="final-cta-desc fade-up fade-up-delay-1">9-10 月是海外求職高峰，現在購買就能立刻讀完整本 37 篇，不用等免費連載慢慢放完。</p>
+  <a class="final-cta-btn fade-up fade-up-delay-2" href="https://buy.stripe.com/28E14ng0m2DN4Oqfwt9bO0o" target="_blank">立即購買 NT$1,980</a>
   <a class="final-cta-sub fade-up fade-up-delay-2" href="https://afterquitting.substack.com/" target="_blank">還沒準備好？先免費訂閱追蹤</a>
 </section>
 
@@ -494,36 +484,6 @@ document.querySelectorAll('.article-status[data-date]').forEach(el => {
     el.classList.add('status-live');
   }
 });
-
-// Limited-time offer countdown (deadline: end of day, Taiwan time)
-// After the deadline, switch the page to full price automatically.
-const PROMO_LINK = 'https://buy.stripe.com/dRmeVdeWi3HR4Oq5VT9bO0n';
-const FULL_PRICE_LINK = 'https://buy.stripe.com/28E14ng0m2DN4Oqfwt9bO0o';
-function endPromo() {
-  document.querySelectorAll(`a[href="${PROMO_LINK}"]`).forEach(a => { a.href = FULL_PRICE_LINK; });
-  document.querySelectorAll('[data-price]').forEach(el => { el.textContent = 'NT$1,980'; });
-  document.querySelectorAll('[data-promo], [data-countdown]').forEach(el => { el.style.display = 'none'; });
-  document.querySelector('.pricing-row').style.marginBottom = '2rem';
-}
-const earlyBirdEnd = new Date('2026-10-04T23:59:59+08:00').getTime();
-const countdownEls = document.querySelectorAll('[data-countdown]');
-function updateCountdown() {
-  const diff = earlyBirdEnd - Date.now();
-  if (diff <= 0) {
-    endPromo();
-    clearInterval(countdownTimer);
-    return;
-  }
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor(diff / 3600000) % 24;
-  const m = Math.floor(diff / 60000) % 60;
-  const sec = Math.floor(diff / 1000) % 60;
-  const pad = n => String(n).padStart(2, '0');
-  const text = `限時優惠倒數 ${d} 天 ${pad(h)}:${pad(m)}:${pad(sec)}`;
-  countdownEls.forEach(el => { el.textContent = text; });
-}
-const countdownTimer = setInterval(updateCountdown, 1000);
-updateCountdown();
 
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
