@@ -164,6 +164,11 @@
   .final-cta-title { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 600; margin-bottom: 0.75rem; }
   .final-cta-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.8; }
   .final-cta-btn { display: inline-block; padding: 14px 32px; background: var(--accent); color: #0F1117; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; }
+  .coupon-card { max-width: 440px; margin: 1.5rem auto 0; text-align: center; border: 1px dashed rgba(107,125,232,0.5); border-radius: 16px; padding: 2rem; }
+  .coupon-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; margin-bottom: 0.6rem; }
+  .coupon-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; }
+  .coupon-btn { display: inline-block; padding: 11px 22px; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .coupon-btn:hover { background: rgba(107,125,232,0.1); }
   .final-cta-sub { display: block; width: fit-content; margin: 1rem auto 0; font-size: 13px; color: var(--text-tertiary); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; }
   .final-cta-sub:hover { color: var(--accent); border-color: var(--accent); }
   .final-cta-btn:hover { opacity: 0.85; }
@@ -438,6 +443,11 @@
     <a class="pricing-cta" href="https://buy.stripe.com/28E14ng0m2DN4Oqfwt9bO0o" target="_blank">立即購買 NT$1,980</a>
     <p class="pricing-guarantee">讀完不滿意？7 天內全額退款</p>
   </div>
+  <div class="coupon-card fade-up">
+    <p class="coupon-title">還在考慮？訂閱電子報，收到專屬購書折扣</p>
+    <p class="coupon-desc">免費訂閱 Substack 電子報，歡迎信裡會附上只給訂閱者的購書折扣碼，之後每週也會收到新文章。</p>
+    <a class="coupon-btn" href="https://afterquitting.substack.com/" target="_blank">免費訂閱，領取折扣</a>
+  </div>
 </section>
 
 <section class="section">
@@ -529,6 +539,7 @@ document.querySelectorAll('a[href*="afterquitting.substack.com"]').forEach(link 
     if (typeof gtag === 'function') {
       let source = 'reader_stats_section';
       if (link.classList.contains('final-cta-sub')) source = 'final_cta_section';
+      else if (link.classList.contains('coupon-btn')) source = 'coupon_section';
       else if (link.classList.contains('hero-cta')) source = 'hero_section';
       gtag('event', 'click_subscribe', {
         event_category: 'newsletter',
